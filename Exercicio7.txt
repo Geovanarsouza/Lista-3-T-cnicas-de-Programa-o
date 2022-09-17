@@ -1,0 +1,54 @@
+package lista3;
+import java.util.Scanner;
+
+/*Inversão de vetores: Sua função deverá receber dois vetores. Sendo que
+os dados do primeiro vetor deve ser colocado no segundo vetor e os dados
+segundo vetor devem ser colocados no primeiro vetor.*/
+public class Exercício07 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int [] vetor1;
+		int [] vetor2;
+		System.out.println("Informe o tamanho do primeiro vetor: ");
+		int tamanhovetor1=entrada.nextInt();
+		vetor1=new int[tamanhovetor1];
+		for(int i=0;i<tamanhovetor1;i++) {
+			System.out.println("Informe o "+(i+1)+ " elemento do primeiro vetor");
+			vetor1[i]=entrada.nextInt();
+		}
+		System.out.println("informe o tamanho do segundo vetor: ");
+		int tamanhovetor2=entrada.nextInt();
+		vetor2=new int[tamanhovetor2];
+		for(int i=0;i<tamanhovetor2;i++) {
+			System.out.println("Informe o "+(i+1)+ " elemento do segundo vetor");
+			vetor2[i]=entrada.nextInt();
+		}
+		inversão(vetor1,vetor2,tamanhovetor1,tamanhovetor2);
+	}
+	public static void inversão(int [] num1,int [] num2,int n1, int n2) {
+		int [] vetor;
+		vetor=new int[n1];
+		int aux=n1;
+		for(int i=0;i<n1;i++) {
+			vetor[i]=num1[i];
+		}
+		num1=new int[n2];
+		for(int i=0;i<n2;i++) {
+			num1[i]=num2[i];
+		}
+		num2=new int[aux];
+		for(int i=0;i<n1;i++) {
+			num2[i]=vetor[i];
+		}
+		System.out.println("*******************");
+		System.out.println("Primeiro vetor com dados trocados:");
+		for(int i=0;i<num1.length;i++) {
+			System.out.println(num1[i]);
+		}
+		System.out.println("Segundo vetor com dados trocados:");
+		for(int i=0;i<num2.length;i++) {
+			System.out.println(num2[i]);
+		}
+	}
+}

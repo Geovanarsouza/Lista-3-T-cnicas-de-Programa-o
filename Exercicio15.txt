@@ -1,0 +1,39 @@
+package lista3;
+/*Complementação: Sua função deverá receber dois vetores de números
+inteiros positivos e negativos. Ela deverá produzir um terceiro vetor em que
+cada índice desse vetor tenha um número que somado com elementos do
+mesmo índice dos vetores anteriores tenha a soma sempre igual a 10.*/
+import java.util.Scanner;
+
+public class Exercício15 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int [] vetor1;
+		int [] vetor2;
+		System.out.println("Informe o tamanho dos vetores: ");
+		int tamanho=entrada.nextInt();
+		vetor1=new int [tamanho];
+		vetor2=new int [tamanho];
+		for(int i=0;i<tamanho;i++) {
+			System.out.println("Informe o "+(i+1)+" elemento do primeiro vetor: ");
+			vetor1[i]=entrada.nextInt();
+		}
+		for(int i=0;i<tamanho;i++) {
+			System.out.println("Informe o "+(i+1)+" elemento do segundo vetor: ");
+			vetor2[i]=entrada.nextInt();
+		}
+		complementação(vetor1,vetor2);
+	}
+	public static void complementação (int []num1, int []num2) {
+		int [] vetorcomplemento;
+		vetorcomplemento=new int [num1.length];
+		for(int i=0;i<num1.length;i++) {
+			vetorcomplemento[i]=10-(num1[i]+num2[i]);
+		}
+		for(int i=0;i<num1.length;i++) {
+			System.out.println(vetorcomplemento[i]);
+		}
+	}
+
+}

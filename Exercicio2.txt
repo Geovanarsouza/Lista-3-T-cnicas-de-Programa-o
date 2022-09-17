@@ -1,0 +1,36 @@
+package lista3;
+import java.util.Scanner;
+
+/*Pesquisa por índice: Sua função deverá receber um vetor e retornar o
+elemento do vetor por meio de um índice informado. Seu programa deverá
+tratar os casos em que o índice não existe no vetor.*/
+
+public class Exercício02 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int [] vetor;
+		System.out.println("Informe o tamanho do vetor: ");
+		int tamanhodovetor=entrada.nextInt();
+		vetor=new int[tamanhodovetor];
+		for(int i=0;i<tamanhodovetor;i++) {
+			System.out.println("Informe o "+(i+1)+" número do vetor: ");
+			vetor[i]=entrada.nextInt();
+		}
+		System.out.println("Informe o índice que deseja pesquisar no vetor: ");
+		int indice=entrada.nextInt();
+		pesquisa_por_indice(vetor,indice);
+	}
+	public static boolean pesquisa_por_indice(int [] num,int n){
+		if(n<num.length)
+		{
+			System.out.println(num[n]);
+			return true;
+		}
+		else {
+			System.out.println("O índice não existe no vetor");
+			return false;
+		}
+	}
+}
+

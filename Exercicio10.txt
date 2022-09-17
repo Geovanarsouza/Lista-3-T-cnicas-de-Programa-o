@@ -1,0 +1,59 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Compactação Sua função deverá receber um vetor composto com uma
+sequência de zeros e uns e gerar um novo vetor compactado.
+A quantidade dos elementos repetidos devem ser contados e o número de
+ocorrências deve ser colocado logo após o elemento.
+Por exemplo: O vetor de entrada está indicado em azul “apenas zeros e uns” a
+saída está destacado em verde.*/
+public class Exercício10 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int [] vetor;
+		System.out.println("Informe o tamanho do seu vetor: ");
+		int tamanhovetor=entrada.nextInt();
+		vetor=new int[tamanhovetor];
+		for(int i=0;i<tamanhovetor;i++) {
+			System.out.println("Informe o "+(i+1)+" elemento do vetor");
+			vetor[i]=entrada.nextInt();
+		}
+		compactação(vetor);
+	}
+	public static void compactação(int []num) {
+		int aux=num[0];
+		int[] vetor;
+		int novotamanho;
+		int cont=1;
+		for(int i=0;i<num.length;i++) {
+			if(aux!=num[i]) {
+				aux=num[i];
+				cont++;
+			}
+		}
+		novotamanho=2*cont;
+		vetor=new int[novotamanho];
+		aux=num[0];
+		cont=0;
+		for(int i=0,j=0;i<num.length;i++) {
+			if(aux==num[i]) {
+				cont++;
+				vetor[j]=aux;
+			}
+			else {
+				j++;
+				vetor[j]=cont;
+				j++;
+				cont=0;
+				aux=num[i];
+				i--;
+			}
+		}
+		for(int i=0;i<vetor.length;i++) {
+			System.out.println(vetor[i]);
+		}
+	}	
+}
+

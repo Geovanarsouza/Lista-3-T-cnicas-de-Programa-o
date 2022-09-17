@@ -1,0 +1,55 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Priorização: Sua função deverá receber um vetor e pegar os elementos do
+vetor e colocar em um segundo vetor. Os novos elementos devem ser
+colocados no segundo vetor apenas quando eles contribuam para a média
+dos segundo vetor aumentar.*/
+public class Exercício08 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int []vetor;
+		System.out.println("Informe o tamanho do seu vetor: ");
+		int tamanhodovetor=entrada.nextInt();
+		vetor=new int[tamanhodovetor];
+		for(int i=0;i<tamanhodovetor;i++) {
+			System.out.println("Informe o "+(i+1)+" elemento do seu vetor: ");
+			vetor[i]=entrada.nextInt();
+		}
+		priorização(vetor);
+	}
+	public static void priorização (int [] num) {
+		int [] vetor2;
+		float media=0;
+		int soma=0;
+		int cont=0;
+		for(int i=0;i<num.length;i++) {
+			soma+=num[i];
+			if(num[i]>media) {
+				media=soma/(i+1);
+				cont++;
+			}
+		}
+		vetor2=new int [cont];
+		int j=0;
+		soma=0;
+		media=0;
+		while(j<cont) {
+			for(int i=0;i<num.length;i++) {
+				soma+=num[i];
+				if(num[i]>media) {
+					media=soma/(i+1);
+					vetor2[j]=num[i];
+					j++;
+				}
+			}
+		}
+		System.out.println("O novo vetor recebeu os seguintes elementos: ");
+		for(int i=0;i<vetor2.length;i++) {
+			System.out.println(vetor2[i]);
+		}
+	}
+
+}

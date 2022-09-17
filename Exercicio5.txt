@@ -1,0 +1,48 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Junção de vetor: Sua função deverá receber dois vetores de qualquer
+tamanho e retornar apenas um vetor que contenha os dois vetores. O
+primeiro vetor deverá ficar nas primeiras posições e o segundo vetor nas
+últimas posições.*/
+public class Exercício05 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int [] vetor1;
+		int [] vetor2;
+		System.out.println("Informe o tamanho do primeiro vetor: ");
+		int tamanhovetor1=entrada.nextInt();
+		vetor1=new int[tamanhovetor1];
+		for(int i=0;i<tamanhovetor1;i++) {
+			System.out.println("Informe o "+(i+1)+ " elemento do primeiro vetor");
+			vetor1[i]=entrada.nextInt();
+		}
+		System.out.println("informe o tamanho do segundo vetor: ");
+		int tamanhovetor2=entrada.nextInt();
+		vetor2=new int[tamanhovetor2];
+		for(int i=0;i<tamanhovetor2;i++) {
+			System.out.println("Informe o "+(i+1)+ " elemento do segundo vetor");
+			vetor2[i]=entrada.nextInt();
+		}
+		junçãodevetor(vetor1,vetor2,tamanhovetor1,tamanhovetor2);
+	}
+	public static int[] junçãodevetor(int []num1, int [] num2, int tam1, int tam2) {
+		int [] vetor;
+		int tamanhovetor=(tam1+tam2);
+		vetor=new int[tamanhovetor];
+		for(int i=0;i<num1.length;i++) {
+			vetor[i]=num1[i];
+		}
+		for(int i=num1.length,j=0;i<tamanhovetor;i++,j++) {
+			vetor[i]=num2[j];
+		}
+		System.out.println("*****************");
+		for(int i=0;i<tamanhovetor;i++) {
+			System.out.println(vetor[i]);
+		}
+		return vetor;
+	}
+
+}

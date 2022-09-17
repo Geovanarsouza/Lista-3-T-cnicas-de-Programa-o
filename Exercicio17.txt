@@ -1,0 +1,48 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Explosão: Sua função deverá receber um vetor e gerar um segundo vetor
+com os dados acrescidos. O número de cada posição do vetor de entrada
+corresponde ao número de elementos que devem ser gerados.
+Exemplo:
+Vetor de entrada: {2,3,2,4,3}
+vetor de saída: {2,2,3,3,3,2,2,4,4,4,4,3,3,3}*/
+public class Exercício17 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int []vetor;
+		System.out.println("Informe o tamanho do seu vetor: ");
+		int tamanhodovetor=entrada.nextInt();
+		vetor=new int[tamanhodovetor];
+		for(int i=0;i<tamanhodovetor;i++) {
+			System.out.println("Informe o "+(i+1)+" elemento do seu vetor: ");
+			vetor[i]=entrada.nextInt();
+		}
+		explosão(vetor);
+	}
+	public static void explosão(int []num) {
+		int novotamanho=0;
+		for(int i=0;i<num.length;i++) {
+			novotamanho+=num[i];
+		}
+		int[] novovetor;
+		novovetor=new int[novotamanho];
+		int cont=num[0];
+		for(int i=0,j=0;i<novovetor.length;i++) {
+			if(cont!=0) {
+				novovetor[i]=num[j];
+				cont--;
+			}
+			else {
+				j++;
+				cont=num[j];
+				i--;
+			}
+		}
+		for(int i=0;i<novovetor.length;i++) {
+			System.out.println(novovetor[i]);
+		}
+	}
+}

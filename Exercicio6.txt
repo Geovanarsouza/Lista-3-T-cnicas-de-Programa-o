@@ -1,0 +1,36 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Inversão de ordem: Sua função deverá retornar um vetor de ordem inversa.
+Desta forma, o primeiro elemento passa ser o último elemento do vetor, o
+segundo elemento passa ser o penúltimo, assim, sucessivamente;*/
+public class Exercício06 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int [] vetor;
+		System.out.println("Informe o tamanho do vetor: ");
+		int tamanhodovetor=entrada.nextInt();
+		vetor=new int[tamanhodovetor];
+		for(int i=0;i<tamanhodovetor;i++) {
+			System.out.println("Informe o "+ (i+1)+ " elemento do vetor: ");
+			vetor[i]=entrada.nextInt();
+		}
+		inversão(vetor,tamanhodovetor);
+	}
+	public static int[] inversão(int [] num, int n) {
+		int [] vetorinverso;
+		vetorinverso=new int[n];
+		int auxiliar=(n-1);
+		for(int i=0;i<n;i++,auxiliar--) {
+			vetorinverso[i]=num[auxiliar];
+		}
+		System.out.println("********************");
+		for(int i=0;i<n;i++) {
+			System.out.println(vetorinverso[i]);
+		}
+		return vetorinverso;
+	}
+
+}

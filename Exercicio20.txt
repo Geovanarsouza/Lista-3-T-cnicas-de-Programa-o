@@ -1,0 +1,42 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Diferença-A: são informados dois vetores (A e B) e o programa deverá
+mostrar todos elementos que estão no vetor A e não estão no vetor B;*/
+public class Exercício20 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int[]vetorA;
+		int[]vetorB;
+		System.out.println("Informe o tamanho do primeiro vetor: ");
+		int tamanhoA=entrada.nextInt();
+		System.out.println("Informe o tamanho do segundo vetor: ");
+		int tamanhoB=entrada.nextInt();
+		vetorA=new int[tamanhoA];
+		vetorB=new int[tamanhoB];
+		for(int i=0;i<vetorA.length;i++) {
+			System.out.println("Informe o "+(i+1)+" elemento do vetor A: ");
+			vetorA[i]=entrada.nextInt();
+		}
+		for(int i=0;i<vetorB.length;i++) {
+			System.out.println("Informe o "+(i+1)+" elemento do vetor B: ");
+			vetorB[i]=entrada.nextInt();
+		}
+		diferença(vetorA,vetorB);
+		}
+	public static void diferença(int[] num1,int[]num2) {
+		int cont=0;
+		for(int i=0;i<num1.length;i++) {
+			for(int j=0;j<num2.length;j++) {
+				if(num1[i]!=num2[j]) {
+					cont++;
+				}
+			}
+				if(cont==num2.length) {
+					System.out.println(num1[i]);
+				}
+			cont=0;
+		}
+	}

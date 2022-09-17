@@ -1,0 +1,36 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Organização: Sua função deverá receber um vetor e organizar os
+elementos a fim de que os elementos iguais fiquem próximos.*/
+public class Exercício18 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		int [] vetor;
+		System.out.println("Informe o tamanho do seu vetor: ");
+		int tamanhodovetor=entrada.nextInt();
+		vetor=new int[tamanhodovetor];
+			for(int i=0;i<tamanhodovetor;i++) {
+				System.out.println("Informe o "+(i+1)+" número do vetor: ");
+				vetor[i]=entrada.nextInt();
+			}
+			separação(vetor);
+	}
+	public static void separação(int [] num) {
+		int auxiliar=0;
+		for(int i=0;i<num.length;i++) {
+			for(int j=0;j<num.length;j++) {
+				if(num[i]<num[j]) {
+					auxiliar=num[i];
+					num[i]=num[j];
+					num[j]=auxiliar;
+				}
+			}
+		}
+		for(int i=0;i<num.length;i++) {
+			System.out.println(num[i]);
+		}
+	}
+}
