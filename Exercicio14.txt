@@ -1,0 +1,33 @@
+package lista3;
+
+import java.util.Scanner;
+
+/*Contagem de caracteres: Sua função deverá contar os caracteres que
+aparecem no vetor. Os caracteres podem ser qualquer letra ou número do
+alfabeto.Exemplo:
+vetor de entrada {a,b,c,3,3,5,a,c}
+resultado: a=2 - b=1 - c=2 - 3=2 - 5=1*/
+public class Exercício14 {
+
+	public static void main(String[] args) {
+		Scanner entrada=new Scanner(System.in);
+		System.out.println("Informe seu vetor: ");
+		String vetor=entrada.next();
+		contagemDeCaracteres(vetor);
+		}
+	public static void contagemDeCaracteres(String vet) {
+		int cont=0;
+		for(int i=0;i<vet.length();i++) {
+			for(int j=0;j<vet.length();j++) {
+				char aux=vet.charAt(i);
+				if(aux==vet.charAt(j)) {
+					cont++;
+				}
+			}
+			System.out.println(vet.charAt(i)+"="+cont);
+			cont=0;
+			
+		}
+	}
+
+}
